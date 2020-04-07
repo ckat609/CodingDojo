@@ -5,14 +5,28 @@
     </div>
     <script type="text/javascript">
 	    var leftValue = 450, topValue = 100;
+		var walkValue = 1;
+		var walkPath = "img/", walkSpriteDirection = "down", walkFileFormat = ".png";
+		var walkSprite;
 
     	function update(){
+			var walkSprite = walkPath+walkSpriteDirection+walkValue+walkFileFormat;
+			console.log(walkSprite);
+
     		document.getElementById("character").style.left = leftValue+"px";
     		document.getElementById("character").style.top = topValue+"px";
+
+			document.getElementById("character").style.backgroundImage = "url('" + walkSprite + "')";
+
+			if(walkValue==1){
+				walkValue=2;
+			} else if(walkValue==2){
+				walkValue=1;
+			}
 		}
 		
     	document.onkeydown = function(e){
-			console.log(e);
+			// console.log(e);
 
 			var spriteWidth = 56; spriteHeight = 86;
 			var spriteStep = 20;
@@ -21,15 +35,19 @@
 			
 			if(e.keyCode == 37 && leftValue - spriteStep > minX) { // LEFT
 				leftValue -= spriteStep;
+				walkSpriteDirection = "left";
 			}
 			else if (e.keyCode == 39 && leftValue + spriteStep < maxX) { // RIGHT
-				leftValue += spriteStep;    		
+				leftValue += spriteStep;
+				walkSpriteDirection = "right";
 			}
 			else if (e.keyCode == 40 && topValue + spriteStep < maxY) { // DOWN
 				topValue += spriteStep;
+				walkSpriteDirection = "down";
 			}
 			else if (e.keyCode == 38 && topValue - spriteStep > minY) { // UP
 				topValue -= spriteStep;
+				walkSpriteDirection = "top";
 			}
 			// ...
 			update();
