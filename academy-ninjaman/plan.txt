@@ -1,0 +1,7 @@
+v1
+- draw grill
+- punch holes
+- keep surrounding path... maybe
+
+v2
+- rotate segments
