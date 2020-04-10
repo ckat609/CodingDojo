@@ -66,6 +66,7 @@
     </body>
     <script type="text/javascript">
         var score = 0;
+        var coin_count = 0;
 
         var ninja={
             'col': 11,
@@ -95,29 +96,6 @@
         ]
 
         var map=[];
-        // var map=[
-        //     [1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1],
-        //     [1,3,2,2,2,2,1,2,2,2,1,2,1,2,2,2,1,2,2,2,2,3,1],
-        //     [1,2,1,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,1,1,2,1],
-        //     [1,2,1,2,2,2,2,2,1,2,2,2,2,2,1,2,2,2,2,2,1,2,1],
-        //     [1,2,1,2,1,1,1,2,1,1,1,1,1,1,1,2,1,1,1,2,1,2,1],
-        //     [1,2,2,2,1,2,2,2,2,2,2,1,2,2,2,2,2,2,1,2,2,2,1],
-        //     [1,2,1,2,1,2,1,2,1,1,2,1,2,1,1,2,1,2,1,2,1,2,1],
-        //     [1,2,1,2,2,2,1,2,2,2,2,2,2,2,2,2,1,2,2,2,1,2,1],
-        //     [1,2,1,2,1,1,1,2,1,1,1,0,1,1,1,2,1,1,1,2,1,2,1],
-        //     [1,2,1,2,2,2,2,2,1,0,0,0,0,0,1,2,2,2,2,2,1,2,1],
-        //     [2,2,1,1,1,1,1,2,1,3,0,0,0,3,1,2,1,1,1,1,1,2,2],
-        //     [1,2,1,2,2,2,2,2,1,0,0,0,0,0,1,2,2,2,2,2,1,2,1],
-        //     [1,2,1,2,1,1,1,2,1,1,1,1,1,1,1,2,1,1,1,2,1,2,1],
-        //     [1,2,1,2,2,2,1,2,2,2,2,1,2,2,2,2,1,2,2,2,1,2,1],
-        //     [1,2,1,2,1,2,1,2,1,1,2,1,2,1,1,2,1,2,1,2,1,2,1],
-        //     [1,2,2,2,1,2,2,2,2,2,2,2,2,2,2,2,2,2,1,2,2,2,1],
-        //     [1,2,1,2,1,1,1,2,1,1,1,1,1,1,1,2,1,1,1,2,1,2,1],
-        //     [1,2,1,2,2,2,2,2,1,2,2,2,2,2,1,2,2,2,2,2,1,2,1],
-        //     [1,2,1,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,1,1,2,1],
-        //     [1,3,2,2,2,2,1,2,2,2,1,2,1,2,2,2,1,2,2,2,2,3,1],
-        //     [1,1,1,1,1,1,1,1,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1]
-        // ]
 
         function getRandomInt(min, max){
             return Math.floor(min)+Math.floor(Math.random()* Math.floor(max));
@@ -153,7 +131,9 @@
                     if(row == 1 || row == height-1 || col == 1 || col == width-1){
                         map[row][col]=2;
                     }
-                    
+                    if(map[row][col] == 2 || map[row][col] == 3){
+                        coin_count++;
+                    }    
                 }
             }
             //predefined sushi tiles
@@ -199,10 +179,8 @@
             return map_generated;
         }
 
-        
-
         function draworld(){
-            var output="<div id='score' class='score'><p>" + score + "</p></div><br>";
+            var output="<div id='score' class='score'><p>COINS: " + coin_count + " - POINTS: " + score + "</p></div><br>";
             map[ninja.row][ninja.col]=5;
             document.getElementById("world_grid").innerHTML = "";
             
@@ -215,58 +193,6 @@
             }
             document.getElementById("world_grid").innerHTML = output;
         }
-
-        // document.onkeydown = function(e){
-        //     if(![6,7,8,9].includes(map[ninja.row][ninja.col])){
-        //         map[ninja.row][ninja.col] = 0;
-        //     }
-            
-        //     if(e.keyCode === 37){
-        //         if (ninja.col-1 >= 0){
-        //             if(map[ninja.row][ninja.col-1] !== 1){
-        //                 ninja.col--;
-        //                 score+=map_dict[map[ninja.row][ninja.col]][1];
-        //             }
-        //         }
-        //         else{
-        //             ninja.col=map[ninja.row].length-1;
-        //         }
-        //     }
-        //     else if(e.keyCode === 38){
-        //         if (ninja.row-1 >= 0){
-        //             if(map[ninja.row-1][ninja.col] !== 1){
-        //                 ninja.row--;
-        //                 score+=map_dict[map[ninja.row][ninja.col]][1];
-        //             }
-        //         }
-        //         else{
-        //             ninja.row=map.length-1;
-        //         }
-        //     }
-        //     else if(e.keyCode === 39){
-        //         if (ninja.col+1 <= map[ninja.row].length-1){
-        //             if(map[ninja.row][ninja.col+1] !== 1){
-        //                 ninja.col++;
-        //                 score+=map_dict[map[ninja.row][ninja.col]][1];
-        //             }
-        //         }
-        //         else{
-        //             ninja.col=0;
-        //         }
-        //     }
-        //     else if(e.keyCode === 40){
-        //         if (ninja.row+1 < map.length){
-        //             if(map[ninja.row+1][ninja.col] !== 1){
-        //                 ninja.row++;
-        //                 score+=map_dict[map[ninja.row][ninja.col]][1];
-        //             }
-        //         }
-        //         else{
-        //             ninja.row=0;
-        //         }
-        //     }
-        //     draworld();
-        // }
 
         function move_ninja(){
             var x=0, y=0;
@@ -286,17 +212,20 @@
 
                 //moves ninjaman
                 if(map[ninja.row+y][ninja.col+x] !== 1){
+                    if(map[ninja.row+y][ninja.col+x] === 2 || map[ninja.row+y][ninja.col+x] === 3){
+                        coin_count--;
+                    }
                     ninja.col+=x;
                     ninja.row+=y;
                     score+=map_dict[map[ninja.row][ninja.col]][1];
                 }
 
                 //warp tunnel movement
-                if (ninja.row+y > map.length-1){
-                    ninja.row = 0;
+                if (ninja.col+x > map[0].length-1){
+                    ninja.col = 0;
                 }
-                if (ninja.row+y < 0){
-                    ninja.row = map.length-1;
+                if (ninja.col+x < 0){
+                    ninja.col = map[0].length-1;
                 }
             }
             if(ninja.direction == 'up' || ninja.direction == 'down'){
@@ -311,6 +240,9 @@
 
                 //moves ninjaman
                 if(map[ninja.row+y][ninja.col+x] !== 1){
+                    if(map[ninja.row+y][ninja.col+x] === 2 || map[ninja.row+y][ninja.col+x] === 3){
+                        coin_count--;
+                    }
                     ninja.col+=x;
                     ninja.row+=y;
                     score+=map_dict[map[ninja.row][ninja.col]][1];
@@ -324,11 +256,10 @@
                     ninja.row = map.length-1;
                 }
             }
+            if(coin_count == 0){
+                map = map_randomize(map_init(6,8));
+            }
 
-
-            
-            
-            
             draworld()
         }
         document.onkeydown = function(e){
