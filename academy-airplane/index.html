@@ -1,20 +1,269 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Airplane</title>
 </head>
 <body>
+	<div id="world" class="world">
+		<div id="players"></div>
+		<div id="enemies"></div>
+		<div id="bullets"></div>
+	</div>
+</body>
 	<style type="text/css">
+		@keyframes world_animated {
+			from {
+				background-position: 0 0;
+			}
+			to {
+				background-position: 0 900px;
+			}
+		}
+		.world {
+			width: 100%;
+			height: 850px;
+			background-image: url('img/water.jpg');
+			background-position: 0px 0px;
+			animation: world_animated 30s linear  infinite;
+		}
+		.player{
+			background-image: url('img/player_v2.png');
+			width: 75px;
+			height: 62px;
+			position: absolute;
+		}
+		.enemy{
+			background-image: url('img/enemy_v2.png');
+			width: 80px;
+			height: 70px;
+			position: absolute;
+		}
+		@keyframes explosion_animated {
+			from {
+				background-position: 0 0;
+			}
+			to {
+				background-position: 96px 96px;
+			}
+		}
+		.explosion {
+			width: 96px;
+			height: 96px;
+			background-image: url('img/explosion_v2.png');
+			background-position: 96px 96px;
+			position: absolute;
+			/* background-repeat: repeat-y; */
+			animation: explosion_animated 3s linear infinite;
+		}
+		.bullet{
+			background-image: url('img/bullets.png');
+			width: 80px;
+			height: 8px;
+			position: absolute;
+		}
+		
+
 
 	</style>
-
-
-
-
-
 	<script type="text/javascript">
-	
+		var enemySpawnRate = 100;
+		var enemySpawnTimer = 0;
+		var loopSpeed = 50;
+		var direction = 'top';
+
+		var player = {
+			'left': 412,
+			'top': 700,
+			'step': 10
+		}
+
+		var enemies = [];
+			
+		var bullets = [];
+		
+		function getRandomInt(min, max){
+			return Math.floor(min + (Math.random() * max));
+		}
+
+		function movePlayer(){
+			var player_x_min = 0 + player.step
+			var player_x_max = document.getElementById('world').offsetWidth - Math.floor(document.getElementById('player').offsetWidth);
+			var player_y_min = document.getElementById('world').offsetHeight - document.getElementById('world').offsetHeight/3 + player.step
+			var player_y_max = document.getElementById('world').offsetHeight - Math.floor(document.getElementById('player').offsetHeight);
+
+			switch(direction){
+				case 'left': //left
+					player.left = (player.left > player_x_min)?player.left - player.step:player_x_min;
+					break;
+				case 'up': //up
+					player.top = (player.top > player_y_min)?player.top - player.step:player_y_min;
+					break;
+				case 'right': //right
+					player.left = (player.left < player_x_max)?player.left + player.step:player_x_max;
+					break;
+				case 'down': //down
+					player.top = (player.top < player_y_max)?player.top + player.step:player_y_max;
+					break;
+			}
+		}
+
+		function drawPlayer(){
+			var output = "";
+
+			output += "<div id='player' class='player' style='left: " + player.left + "px; top: " + player.top + "px;'></div>";
+			
+			document.getElementById('players').innerHTML = output;
+		}
+
+		function addEnemy(){
+			enemies.push({'left': getRandomInt(80, document.getElementById('world').offsetWidth-160), 'top': 0, 'step': getRandomInt(5,10), 'isAlive': true, 'countdown': 9});
+		}
+
+		function delEnemy(pos, cd){
+
+			if(!enemies[pos].isAlive){
+				enemies[pos].countdown--;
+			}
+			if (cd === 0 || enemies[pos].countdown === 0){
+				enemies.splice(pos,1);
+			}
+		}
+
+		function detectBulletCollision(enemy, pos){
+			for(var i=0; i<bullets.length;i++){
+				// console.log(enemy.left);
+				// console.log(document.getElementById('bullet'+i).style.left.slice(0,-2));
+				// console.log(document.getElementById('bullet'+i).offsetWidth);
+				// console.log(document.getElementById('enemy'+pos).offsetWidth);
+
+				// if(enemy.left < document.getElementById('bullet'+i).style.left.slice(0,-2) + 80 &&
+				// enemy.left + 80 > document.getElementById('bullet'+i).style.left.slice(0,-2) &&
+				// enemy.top < document.getElementById('bullet'+i).style.top.slice(0,-2) + 10 &&
+				// enemy.top + 70 > document.getElementById('bullet'+i).style.top.slice(0,-2)){
+
+				if(
+					bullets[i].left < enemy.left+80 &&
+					bullets[i].left + 80 > enemy.left &&
+					bullets[i].top < enemy.top + 70 &&
+					bullets[i].top + 8 > enemy.top
+				){
+					enemies[pos].isAlive = false;
+					delEnemy(pos, 9);
+					bullets.splice(i, 1);
+				}
+			}
+			
+		}
+
+		function moveEnemies(){
+			var player_y_max = document.getElementById('world').offsetHeight - Math.floor(document.getElementById('player').offsetHeight);
+
+			for(var i=0; i<enemies.length; i++){
+				detectBulletCollision(enemies[i], i);
+				enemies[i].top+=enemies[i].step;
+				
+				if(enemies[i].top > document.getElementById('world').offsetHeight-60){
+					delEnemy(i, 0);
+					// enemies.splice(i,1);
+					i--;
+					
+				}
+				
+			}
+		}
+
+		function drawEnemies(){
+			var output = "";
+			// console.log(enemies);
+			for(var i=0; i<enemies.length; i++){
+				
+				sprite = (enemies[i].countdown < 9)?'explosion':'enemy';
+				output += "<div id='enemy" + i + "' class='" + sprite + "' style='left:" + enemies[i].left+ "px; top: " + enemies[i].top + "px;'></div>";
+			}
+			
+			document.getElementById('enemies').innerHTML = output;
+		}
+
+		function moveBullets(){
+			for(var i=0; i<bullets.length; i++){
+				bullets[i].top-=bullets[i].step;
+				if(bullets[i].top < 10){
+					bullets.splice(i,1);
+					i--;
+				}
+			}
+		}
+
+		function drawBullets(){
+			var output = "";
+			
+			for(var i=0; i<bullets.length; i++){
+				output += "<div id='bullet" + i + "' class='bullet' style='left:" + bullets[i].left+ "px; top: " + bullets[i].top + "px;'></div>";
+			}
+			
+			document.getElementById('bullets').innerHTML = output;
+		}
+
+		document.onkeydown = function(e){
+			// switch(e.keyCode){
+			// 	case 37: //left
+			// 		player.left = (player.left > player_x_min)?player.left-player.step:player_x_min;
+			// 		break;
+			// 	case 38: //up
+			// 		player.top = (player.top > player_y_min)?player.top-player.step:player_y_min;
+			// 		break;
+			// 	case 39: //right
+			// 		player.left = (player.left < player_x_max)?player.left+player.step:player_x_max;
+			// 		break;
+			// 	case 40: //down
+			// 		player.top = (player.top < player_y_max)?player.top+player.step:player_y_max;
+			// 		break;
+			// 	case 32: //fire
+			// 		bullets.push({'left':player.left, 'top':player.top, 'step': 50});
+			// 		drawBullets();
+			// 		break;
+			// }
+			switch(e.keyCode){
+				case 37: //left
+					direction = 'left';
+					break;
+				case 38: //up
+					direction = 'up';
+					break;
+				case 39: //right
+					direction = 'right';
+					break;
+				case 40: //down
+					direction = 'down';
+					break;
+				case 32: //fire
+					bullets.push({'left':player.left, 'top':player.top, 'step': 50});
+					drawBullets();
+					break;
+			}
+
+			drawPlayer();
+		}
+
+		function gameLoop(){
+			if(enemySpawnRate/enemySpawnTimer === 1){
+				enemySpawnTimer = 0;
+				addEnemy();
+			}
+
+			drawPlayer();
+			movePlayer()
+			
+
+			moveEnemies()
+			drawEnemies();
+
+			moveBullets();
+			drawBullets();
+			enemySpawnTimer+=20;
+		}
+		
+		var runGame = setInterval(gameLoop, loopSpeed);
 
 	</script>
-</body>
 </html>
