@@ -156,7 +156,7 @@ table{
     margin-left: auto;
     margin-right: auto;
 }
-.icons {
+.icons, .link-portfolio {
     display: block;
     background-color: transparent;
     width: 100px;
@@ -164,6 +164,6 @@ table{
     position: relative;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 20%);
     
 }
