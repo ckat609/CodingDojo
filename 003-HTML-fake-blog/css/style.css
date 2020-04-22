@@ -5,33 +5,35 @@
     /* outline: 1px dotted red; */
     font-family: 'Roboto', sans-serif;
     color: #666;
+    line-height: 1.6;
 }
 
 a{
+    font-size: .9rem;
     color: royalblue;
     text-decoration: none;
 }
 
 a:hover{
+    font-size: .9rem;
     color: orange;
     text-decoration: none;
 }
 
 a:visited{
-    color: royalblue;
+    font-size: .9rem;
+    color: palevioletred;
     text-decoration: none;
+    
 }
 
 p{
-    font-size: .85rem;
-    line-height: 1.6;
+    font-size: .9rem;
     margin-bottom: 1rem;
-    
-    justify-content: ce;
 }
 
 h2{
-    color: royalblue;
+    color: palevioletred;
 }
 
 h3{
@@ -40,7 +42,7 @@ h3{
 }
 
 ul{
-    
+    font-size: .9rem;
     display: inline-block;
     list-style-type: square;
 }
@@ -50,16 +52,17 @@ li{
 }
 
 hr{
-    width: 100px;
+    width: 50px;
     height:0;
     margin: 10px auto;
     background-color: transparent;
     border: none;
-    border-top: 20px dotted lightgrey;
+    border-top: 10px dotted lightgrey;
 }
 
 input{
     margin: 5px auto;
+    font-size: .9rem;
 }
 
 input[type=submit]{
@@ -68,7 +71,7 @@ input[type=submit]{
     border-radius: 5px;
     border: none;
     color: white;
-    background-color: royalblue;
+    background-color: palevioletred;
 }
 
 input[type=submit]:hover{
@@ -81,7 +84,7 @@ input[type=submit]:hover{
 }
 
 th{
-    background-color: royalblue;
+    background-color: palevioletred;
     color: white;
 }
 
@@ -97,6 +100,14 @@ table{
 
 .mt-20{
     margin-top: 20px;
+}
+
+.mb-10{
+    margin-bottom: 10px;
+}
+
+.mt-10{
+    margin-top: 10px;
 }
 
 .center{
@@ -120,9 +131,8 @@ table{
     margin-bottom: 15px;
 }
 
-.inline-div-ful{
+.inline-div-full{
     width: 100%;
-    background-color: red;
     min-height: 200px;
 }
 
@@ -138,7 +148,7 @@ table{
 
 .blog-post-title{
     border-radius: 5px 5px 0 0;
-    background-image: linear-gradient(royalblue, rgb(90, 125, 230), royalblue);
+    background-image: linear-gradient(to right, #333,#444,#333);
     padding: 10px 10px;
     color: white;
 }
@@ -149,7 +159,7 @@ table{
 
 
 .icons-div {
-    background-color: orange;
+    background-color: palevioletred;
     border-radius: 100%;
     width: 150px;
     height: 150px;
