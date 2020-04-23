@@ -168,14 +168,9 @@ a:hover {
     margin: 0;
     padding: 0;
     width: 300px;
-    display: inline-block;
-}
-
-.navbar-submenu ul{
-    margin: 0;
-    padding: 0;
     text-align: center;
     list-style: none;
+    display: inline-block;
 }
 
 .navbar-info{
@@ -272,6 +267,6 @@ a:hover {
     color: rgb(255,219,62);
 }
 
-.tx-white{
+li.tx-white{
     color: white;
 }
