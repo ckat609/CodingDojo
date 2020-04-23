@@ -26,6 +26,10 @@ a{
     font-style: oblique;
 }
 
+.m-l-10 {
+    margin-left:10px;
+}
+
 .wrapper{
     background-color: rgb(245,245,245);
     width: 900px;
