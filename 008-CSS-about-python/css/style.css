@@ -77,22 +77,6 @@ a:hover {
     background-color: var(--bg-python-blue);
 }
 
-.tx-python-yellow{
-    color: rgb(255,219,62);
-}
-
-.tx-size-75{
-    font-size: .75rem;
-}
-
-.tx-size-1-2{
-    font-size: 1.2rem;
-}
-
-.tx-style-oblique{
-    font-style: oblique;
-}
-
 .logo {
     width: 350px;
     display: inline-block;
@@ -161,7 +145,7 @@ a:hover {
     display: inline-block;
 }
 
-.menu-buttons{
+.navbar li{
     margin: 14px 0 0 0;
     font-weight: 300;
     display: inline-block;
@@ -171,7 +155,7 @@ a:hover {
     font-size: 1.1rem;
     color: rgb(255,255,255);
     text-decoration: none;
-    padding: 15px 18px;
+    padding: 15px 26px;
 }
 
 .navbar a:hover{
@@ -202,25 +186,35 @@ a:hover {
     display: inline-block;
 }
 
+.navbar-info ul{
+    list-style: none;
+}
+
+.navbar-info li{
+    color: var(--bg-python-yellow);
+    font-size: 1.2rem;
+    font-style: oblique;
+}
+
 .navbar-info p{
     padding: 0 20px 15px 20px;
 }
 
-.submenu-button:before{
+.navbar-submenu li:before{
     font-size: .9rem;
     color: var(--bg-python-yellow);
     content: "»";
 }
 
-.submenu-button{
+.navbar-submenu li{
     margin: 0 0 10px 0;
 }
 
-.submenu-button a, .submenu-button a:visited{
+.navbar-submenu a, .navbar-submenu a:visited{
     color: white;
 }
 
-.submenu-button a:hover{
+.navbar-submenu a:hover{
     color:var(--bg-python-yellow);
 }
 
@@ -272,4 +266,12 @@ a:hover {
 
 .container-footer h6{
     margin: 10px;
+}
+
+.tx-python-yellow{
+    color: rgb(255,219,62);
+}
+
+.tx-white{
+    color: white;
 }
