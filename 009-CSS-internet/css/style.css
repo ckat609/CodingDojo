@@ -1,0 +1,250 @@
+:root {
+    --color-darkblue: rgb(35, 101, 158);
+    --color-lightblue: rgb(80, 130, 172);
+    --color-darkcyan: rgb(28, 167, 187);
+    --color-lightcyan: rgb(114, 207, 223);
+    --color-darkgrey: rgb(71, 71, 71);
+}
+
+* {
+    vertical-align: top;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    outline: 0px dotted red;
+    color: var(--color-darkgrey);
+}
+
+body {
+    background-color: lightgrey;
+}
+
+input[type=button] {
+    display: block;
+}
+
+#wrapper {
+    width: 970px;
+    background-color: white;
+    margin: 0 auto;
+    box-shadow: 0 0 5px grey;
+    /* font-size: 0; */
+}
+
+a,
+a:visited {
+    color: var(--color-lightcyan);
+}
+
+a:hover {
+    color: orange;
+}
+
+hr{
+    margin: 20px 0;
+}
+
+#top-bar h2 {
+    line-height: 2;
+    padding: 0 20px;
+    font-weight: 400;
+    color: white;
+    height: 50px;
+    background-image: linear-gradient(var(--color-darkblue), var(--color-lightblue), var(--color-darkblue));
+}
+
+#top-bar img {
+    position: relative;
+    width: 70px;
+    top: 10px;
+    display: inline-block;
+}
+
+#top-bar h1 {
+    position: relative;
+    top: 25px;
+    height: 50px;
+    font-size: 2.5rem;
+    font-weight: 400;
+    display: inline-block;
+}
+
+#col-left {
+    width: 200px;
+    padding: 10px;
+    display: inline-block;
+    /* background-color: red; */
+}
+
+#col-left h3, p {
+    padding: 5px 0;
+}
+
+#col-right {
+    width: 726px;
+    padding: 10px;
+    display: inline-block;
+}
+
+#col-right ul, ol {
+    padding: 0 40px 10px 40px;
+}
+
+#col-right li {
+    padding: 0 0 10px 0;
+}
+
+#col-right span {
+    color: var(--color-lightcyan);
+}
+
+#col-right h3 {
+    color: var(--color-darkblue);
+}
+
+#contact{
+    width: 100%;
+}
+
+#phone{
+    text-align: center;
+    display: inline-block;
+    width: 125px;
+}
+
+#big-3 {
+    width: 696px;
+    border: 5px solid var(--color-lightblue);
+    padding: 10px;
+}
+
+.codingdojo{
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.dojo-text{
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+}
+
+.dojo-ninja{
+    width: 100px;
+    padding-bottom: 10px;
+}
+
+.big-3-content {
+    width: 542px;
+    display: inline-block;
+}
+
+.tx-darkblue {
+    color: var(--color-darkblue);
+}
+
+.img-medium {
+    text-align: center;
+    width: 250px;
+    display: block;
+    margin: auto;
+    padding: 0 auto;
+}
+
+.img-left {
+    width: 200px;
+}
+
+.img-small {
+    width: 150px;
+}
+
+.img-tiny {
+    width: 25px;
+}
+
+.img-home{
+    width: 25px;
+    display: inline-block;
+}
+
+.img-phone{
+    padding-left: 486px;
+    width: 45px;
+    display: inline-block;
+}
+
+.el-center {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.el-inline-block {
+    display: inline-block;
+}
+
+.tx-contact-info{
+    font-size: .6rem;
+    color: grey;
+}
+
+.phone-small-text{
+    font-size: .55rem;
+    color: grey;
+    padding: 0;
+}
+
+.phone-large-text{
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0;
+    color: var(--color-lightcyan);
+}
+
+.tx-red {
+    color: red;
+}
+
+.tx-strong {
+    font-weight: 700;
+}
+
+.but-blue {
+    width: 100%;
+    height: 30px;
+    font-size: .85rem;
+    font-weight: 400;
+    color: white;
+    border-radius: 5px;
+    background-image: linear-gradient(var(--color-lightblue), var(--color-darkblue));
+    box-shadow: 2px 2px 2px grey;
+}
+
+.but-cyan {
+    width: 80%;
+    height: 30px;
+    font-size: .85rem;
+    font-weight: 400;
+    color: white;
+    border-radius: 5px;
+    background-image: linear-gradient(var(--color-lightcyan), var(--color-darkcyan));
+    box-shadow: 2px 2px 2px grey;
+    margin: 0 auto;
+}
+
+.but-orange {
+    width: 100%;
+    height: 30px;
+    font-size: .85rem;
+    font-weight: 400;
+    color: white;
+    border-radius: 5px;
+    background-image: linear-gradient(rgb(255, 187, 61), rgb(223, 145, 0));
+    box-shadow: 2px 2px 2px grey;
+}
