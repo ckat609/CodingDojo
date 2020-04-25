@@ -27,10 +27,6 @@ body{
     margin: 0;
 }
 
-.col1{
-    width: 25%;
-}
-
 @media only screen and (min-width: 481px){
     #wrapper{
         width: 70%;
