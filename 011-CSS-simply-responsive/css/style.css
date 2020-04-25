@@ -1,0 +1,66 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    outline: 0px solid red;
+}
+
+body{
+    background-color: lightgrey;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper{
+    width: 85%;
+    background-color: white;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#wrapper p{
+    /* margin: 5px; */
+    padding: 10px;
+}
+
+#title{
+    font-size: 2rem;
+    font-weight: 900;
+    background-color: grey;
+    border: 1px solid grey;
+    margin: 0;
+}
+
+#title p{
+    padding: 0;
+}
+
+#description{
+    font-size: 1rem;
+    font-weight: 300;
+    background-color: lightgrey;
+    border: 1px solid grey;
+}
+
+#screen-size{
+    font-size: 1rem;
+    font-weight: 900;
+    background-color: rgb(255,255,154);
+    border: 1px solid grey;
+}
+
+@media screen and (max-width: 480px){
+    #screen-size:after{
+        content: "Phone: Width greater than or equal to 1024px";
+    }
+}
+
+@media screen and (min-width: 481px){
+    #screen-size:after{
+        content: "Tablet: Width between 481px and 1023px";
+    }
+}
+
+@media screen and (min-width: 1024px){
+    #screen-size:after{
+        content: "Desktop: Width greater than or equal to 1024px";
+    }
+}
