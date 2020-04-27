@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="prob1">
+        <h1>Problem 1</h1>
+        <hr>
+        <div id="prob1-sol"></div>
+
+        <h1>Problem 2</h1>
+        <hr>
+        <div id="prob2-sol"></div>
+
+        <h1>Problem 3</h1>
+        <hr>
+        <div id="prob3-sol"></div>
+
+        <h1>Problem 4</h1>
+        <hr>
+        <div id="prob4-sol"></div>
+
+        <h1>Problem 5</h1>
+        <hr>
+        <div id="prob5-sol"></div>
+
+        <h1>Problem 6</h1>
+        <hr>
+        <div id="prob6-sol"></div>
+
+        <h1>Problem 7</h1>
+        <hr>
+        <div id="prob7-sol"></div>
+
+        <h1>Problem 8</h1>
+        <hr>
+        <div id="prob8-sol"></div>
+
+        <h1>Problem 9</h1>
+        <hr>
+        <div id="prob9-sol"></div>
+
+        <h1>Problem 10</h1>
+        <hr>
+        <div id="prob10-sol"></div>
+
+        <h1>Problem 11</h1>
+        <hr>
+        <div id="prob11-sol"></div>
+
+        <h1>Problem 12</h1>
+        <hr>
+        <div id="prob12-sol"></div>
+
+        <h1>Problem 13</h1>
+        <hr>
+        <div id="prob13-sol"></div>
+    </div>
+    <script>
+        function prob1(maxValue) {
+            var arrValues = [];
+            for (var i = 1; i <= maxValue; i++) {
+                arrValues.push(i);
+            }
+            return arrValues;
+        }
+        document.getElementById("prob1-sol").innerHTML = "<p>" + prob1(255) + "</p>";
+
+
+        function prob2(maxValue) {
+            var sum = 0;
+            for (var i = 1; i <= maxValue; i++) {
+                if (i % 2 === 0) {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+        document.getElementById("prob2-sol").innerHTML = "<p>" + prob2(1000) + "</p>";
+
+
+        function prob3(maxValue) {
+            var sum = 0;
+            for (var i = 1; i <= maxValue; i++) {
+                if (i % 2 !== 0) {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
+        document.getElementById("prob3-sol").innerHTML = "<p>" + prob3(1000) + "</p>";
+
+
+        function prob4(arrValues) {
+            var sum = 0;
+            for (var i = 0; i < arrValues.length; i++) {
+                sum += arrValues[i];
+            }
+            return sum;
+        }
+        document.getElementById("prob4-sol").innerHTML = "<p>" + prob4([-5, 2, 5, 12]) + "</p>";
+
+
+        function prob5(arrValues) {
+            var max = 0;
+            for (var i = 0; i < arrValues.length; i++) {
+                if (arrValues[i] >= max) {
+                    max = arrValues[i];
+                }
+            }
+            return max;
+        }
+        document.getElementById("prob5-sol").innerHTML = "<p>" + prob5([-3, 3, 5, 7]) + "</p>";
+
+
+        function prob6(arrValues) {
+            var sum = 0;
+            for (var i = 0; i < arrValues.length; i++) {
+                sum += arrValues[i];
+            }
+            return sum / arrValues.length;
+        }
+        document.getElementById("prob6-sol").innerHTML = "<p>" + prob6([1, 3, 5, 7, 20]) + "</p>";
+
+
+        function prob7(maxValue) {
+            var arrValues = [];
+            for (var i = 1; i <= maxValue; i++) {
+                if (maxValue[i] % 2 !== 0) {
+                    arrValues.push(i);
+                }
+            }
+            return arrValues;
+        }
+        document.getElementById("prob7-sol").innerHTML = "<p>" + prob7(50) + "</p>";
+
+
+        function prob8(arrValues, maxValue) {
+            var count = 0;
+            for (var i = 0; i < arrValues.length; i++) {
+                if (arrValues[i] > maxValue) {
+                    count++;
+                }
+            }
+            return count;
+        }
+        document.getElementById("prob8-sol").innerHTML = "<p>" + prob8([1, 3, 5, 7], 3) + "</p>";
+
+
+        var arrValues = [1, 5, 10, -2];
+
+        function prob9() {
+            for (var i = 0; i < arrValues.length; i++) {
+                arrValues[i] *= arrValues[i];
+            }
+            return arrValues
+        }
+        document.getElementById("prob9-sol").innerHTML = "<p>" + prob9() + "</p>";
+
+
+        var arrValues = [1, 5, 10, -2];
+
+        function prob10() {
+            for (var i = 0; i < arrValues.length; i++) {
+                if (arrValues[i] < 0) {
+                    arrValues[i] = 0;
+                }
+            }
+            return arrValues
+        }
+        document.getElementById("prob10-sol").innerHTML = "<p>" + prob10() + "</p>";
+
+
+        function prob11(arrValues) {
+            var min = 0;
+            var max = 0;
+            var sum = 0;
+
+            for (var i = 0; i < arrValues.length; i++) {
+                if (arrValues[i] <= min) {
+                    min = arrValues[i];
+                }
+                if (arrValues[i] >= max) {
+                    max = arrValues[i];
+                }
+                sum += arrValues[i];
+            }
+            return [max, min, sum / arrValues.length];
+        }
+        document.getElementById("prob11-sol").innerHTML = "<p>" + prob11([1, 5, 10, -2]) + "</p>";
+
+
+        function prob12(arrValues) {
+            var temp = arrValues[0];
+            arrValues[0] = arrValues[arrValues.length - 1];
+            arrValues[arrValues.length - 1] = temp;
+            return arrValues;
+        }
+        document.getElementById("prob12-sol").innerHTML = "<p>" + prob12([1, 5, 10, -2]) + "</p>";
+
+
+        function prob13(arrValues) {
+            for (var i = 0; i < arrValues.length; i++) {
+                if (arrValues[i] < 0) {
+                    arrValues[i] = 'Dojo';
+                }
+            }
+            return arrValues;
+        }
+        document.getElementById("prob13-sol").innerHTML = "<p>" + prob13([-1, -3, 2]) + "</p>";
+    </script>
+</body>
+
+</html>
