@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Algorithm Arrays</title>
+</head>
+
+<body>
+    <h1>Problem 1</h1>
+    <hr>
+    <div id="prob1-sol"></div>
+
+    <h1>Problem 1</h1>
+    <hr>
+    <div id="prob2-sol"></div>
+
+
+    <script>
+        var arrValues = [6, 3, 5, 1, 2, 4];
+
+        function prob1(arr) {
+            var sum = 0;
+            var content = "";
+            for (var i = 0; i < arrValues.length; i++) {
+                sum += arrValues[i];
+                content += "<p>Num: " + String(arrValues[i]) + " - Sum: " + String(sum) + "</p>";
+                console.log("Num: " + String(arrValues[i]) + " - Sum: " + String(sum));
+            }
+            return content;
+        }
+        document.getElementById("prob1-sol").innerHTML = prob1(arrValues);
+
+        function prob2(arr) {
+            var content = "";
+            for (var i = 0; i < arr.length; i++) {
+                arrValues[i] *= i;
+
+            }
+            return arr;
+        }
+        document.getElementById("prob2-sol").innerHTML = prob2(arrValues);
+    </script>
+</body>
+
+</html>
