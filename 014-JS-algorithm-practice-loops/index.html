@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Algorithms Loops</title>
+</head>
+
+<body>
+    <h1>Problem 1</h1>
+    <hr>
+    <div id="prob1-sol"></div>
+
+    <h1>Problem 2</h1>
+    <hr>
+    <div id="prob2-sol"></div>
+
+    <script>
+        function prob1(maxValue) {
+            var content = "";
+            var arrValues = [];
+            for (var i = 1; i <= 20; i++) {
+                if (i % 2 !== 0) {
+                    console.log(i);
+                    // arrValues.push(i);
+                    content += ("<p>" + String(i) + "</p>");
+                }
+            }
+            return content;
+        }
+        document.getElementById("prob1-sol").innerHTML = prob1();
+
+        function prob2() {
+            var content = "";
+            var sum = 0;
+
+            for (var i = 1; i <= 5; i++) {
+                sum += i;
+                console.log("Current val: " + String(i) + " - Sum: " + String(sum));
+                content += ("<p>Current val: " + String(i) + " - Sum: " + String(sum) + "</p>");
+            }
+            return (content);
+        }
+        document.getElementById("prob2-sol").innerHTML = prob2();
+    </script>
+</body>
+
+</html>
