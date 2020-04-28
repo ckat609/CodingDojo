@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>Playing With Objects</title>
+</head>
+
+<body>
+    <h1>Problem 1</h1>
+    <hr>
+    <ul id="prob1"></ul>
+
+
+    <script>
+        var users = [{
+            name: "Michael",
+            age: 37
+        }, {
+            name: "John",
+            age: 30
+        }, {
+            name: "David",
+            age: 27
+        }];
+
+        function printName(name_to_search, object_to_iterate) {
+            var content = "";
+            for (i in object_to_iterate) {
+                if (object_to_iterate[i].name == name_to_search) {
+                    content += "<li>" + object_to_iterate[i].name + "</li>"
+                    console.log(object_to_iterate[i].name);
+                }
+            }
+            return content;
+        }
+
+        document.getElementById("prob1").innerHTML += printName('John', users);
+
+        function printNameByIndex(index, object_to_iterate) {
+            console.log(object_to_iterate[index].name);
+            return "<li>" + object_to_iterate[index].name + "</li>"
+        }
+
+        document.getElementById("prob1").innerHTML += printNameByIndex(0, users);
+
+
+        function printNameAge(object_to_iterate) {
+            var content = "";
+            for (var i = 0; i < object_to_iterate.length; i++) {
+                console.log(object_to_iterate[i].name + " - " + object_to_iterate[i].age);
+                content += "<p>" + object_to_iterate[i].name + " - " + object_to_iterate[i].age + "</p>";
+            }
+            return content;
+        }
+
+        document.getElementById("prob1").innerHTML += "<li>" + printNameAge(users) + "</li>";
+    </script>
+</body>
+
+</html>
