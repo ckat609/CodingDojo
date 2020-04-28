@@ -69,6 +69,7 @@
     </div>
     <script>
         var arrValues = [-1, 3, 5, -5];
+        document.getElementById("prob1-sol").innerHTML += "<p>" + String(arrValues) + "</p>";
 
         function prob1(myArray) {
             for (var i = 0; i < myArray.length - 1; i++) {
@@ -78,8 +79,10 @@
             }
         }
         prob1(arrValues);
-        document.getElementById("prob1-sol").innerHTML = "<p>" + arrValues + "</p>";
+        document.getElementById("prob1-sol").innerHTML += "<p>" + arrValues + "</p>";
 
+
+        document.getElementById("prob2-sol").innerHTML += "<p>" + String([3, 9, 2, 1, 5]) + "</p>";
 
         function prob2(arrValues) {
             var max = arrValues[0];
@@ -96,10 +99,13 @@
             console.log(min);
             return (max);
         }
-        document.getElementById("prob2-sol").innerHTML = "<p>" + prob2([3, 9, 2, 1, 5]) + "</p>";
+        document.getElementById("prob2-sol").innerHTML += "<p>" + prob2([3, 9, 2, 1, 5]) + "</p>";
 
+
+        document.getElementById("prob3-sol").innerHTML += "<p>" + String([3, 9, 2, 1, 5]) + "</p>";
 
         function prob3(arrValues) {
+
             console.log(arrValues[arrValues.length - 2])
             for (var i = 0; i < arrValues.length; i++) {
                 if (arrValues[i] % 2 !== 0) {
@@ -107,10 +113,11 @@
                 }
             }
         }
-        document.getElementById("prob3-sol").innerHTML = "<p>" + prob3([3, 9, 2, 1, 5]) + "</p>";
+        document.getElementById("prob3-sol").innerHTML += "<p>" + prob3([3, 9, 2, 1, 5]) + "</p>";
 
 
         var arrValues = [1, 2, 3];
+        document.getElementById("prob4-sol").innerHTML += "<p>" + arrValues + "</p>";
 
         function prob4(arrValues) {
             var arrChanged = arrValues;
@@ -119,10 +126,11 @@
             }
             return arrChanged;
         }
-        document.getElementById("prob4-sol").innerHTML = "<p>" + prob4(arrValues) + "</p>";
+        document.getElementById("prob4-sol").innerHTML += "<p>" + prob4(arrValues) + "</p>";
 
 
         arrValues = [-1, 1, 1, 1];
+        document.getElementById("prob5-sol").innerHTML += "<p>" + arrValues + "</p>";
 
         function prob5(myArray) {
             var count = 0;
@@ -134,21 +142,25 @@
             myArray[myArray.length - 1] = count;
         }
         prob5(arrValues)
-        document.getElementById("prob5-sol").innerHTML = "<p>" + arrValues + "</p>";
+        document.getElementById("prob5-sol").innerHTML += "<p>" + arrValues + "</p>";
 
 
         arrValues = [1, 2, 3, 5, 7, 8, 9, 10, 12, 14, 15, 16, 17, 19, 21, 22, 23, 24, 25, 26, 28, 30];
+        document.getElementById("prob6-sol").innerHTML += "<p>" + arrValues + "</p>";
 
         function prob6(arrValues) {
-            countOdd = 0;
-            countEven = 0;
+            var content = "";
+            var countOdd = 0;
+            var countEven = 0;
             for (var i = 0; i < arrValues.length; i++) {
                 console.log(arrValues[i]);
+                content += "<p>" + arrValues[i] + "</p>"
                 if (arrValues[i] % 2 === 0) {
                     countEven++;
                     countOdd = 0;
                     if (countEven === 3) {
                         countEven = 0;
+                        content += "<p>Even more so!</p>";
                         console.log('Even more so!')
                     }
                 } else {
@@ -156,13 +168,153 @@
                     countEven = 0;
                     if (countOdd === 3) {
                         countOdd = 0;
+                        content += "<p>That's odd</p>";
                         console.log("That's odd");
                     }
                 }
             }
+            return content;
+        }
+        document.getElementById("prob6-sol").innerHTML += "<p>" + prob6(arrValues) + "</p>";
+
+        arrValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+        document.getElementById("prob7-sol").innerHTML += "<p>" + arrValues + "</p>";
+
+        function prob7(arr) {
+            var content = "";
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 !== 0) {
+                    arr[i]++;
+                }
+                console.log(arr[i]);
+                content += "<p>" + String(arr[i]) + "</p>";
+            }
+            return arr;
+        }
+        prob7(arrValues);
+        document.getElementById("prob7-sol").innerHTML += "<p>" + arrValues + "</p>";
+
+
+        arrValues = ["hello", "dojo", "awesome", "coding", "world", "good", "bad", "ugly"];
+        document.getElementById("prob8-sol").innerHTML += "<p>" + String(arrValues) + "</p>";
+
+        function prob8(arr) {
+            var tempPrevString = arr[0];
+            var tempCurrString = "";
+            for (var i = 0; i < arr.length; i++) {
+                if (i - 1 >= 0) {
+                    // tempLength = arr[i - 1].length;
+                    tempCurrString = arr[i];
+                    arr[i] = tempPrevString.length;
+                    tempPrevString = tempCurrString;
+                }
+            }
+            return arr;
+        }
+        prob8(arrValues)
+        document.getElementById("prob8-sol").innerHTML += "<p>" + String(arrValues) + "</p>";
+
+
+        arrValues = [1, 2, 3];
+
+        function prob9(arr) {
+            var newArray = [];
+            for (var i = 0; i < arr.length; i++) {
+                newArray.push(arr[i] += 7);
+            }
+            return newArray;
         }
 
-        document.getElementById("prob6-sol").innerHTML = "<p>" + prob6(arrValues) + "</p>";
+        document.getElementById("prob9-sol").innerHTML += "<p>" + String(arrValues) + "</p>";
+        document.getElementById("prob9-sol").innerHTML += "<p>" + String(prob9(arrValues)) + "</p>";
+
+
+        arrValues = [5, 2, 7, 1, 9, 4, 3, 6, 8, 0]
+
+        function prob10(arr) {
+            var temp = 0;
+            var count = 0;
+            for (var i = 0; i < Math.floor(arr.length / 2); i++) {
+                temp = arr[i];
+                arr[i] = arr[arr.length - 1 - i];
+                arr[arr.length - 1 - i] = temp;
+            }
+            return arr;
+            console.log(arr);
+        }
+        document.getElementById("prob10-sol").innerHTML += "<p>" + String(arrValues) + "</p>";
+        document.getElementById("prob10-sol").innerHTML += "<p>" + String(prob10(arrValues)) + "</p>";
+
+
+        arrValues = [-4, 5, -2, -8, 3, 9, 1, -7, 0]
+
+        function prob11(arrValues) {
+            var newArray = [];
+
+            for (var i = 0; i < arrValues.length; i++) {
+                if (arrValues[i] < 0) {
+                    newArray.push(arrValues[i] * -1);
+                } else {
+                    newArray.push(arrValues[i]);
+                }
+            }
+            return newArray;
+        }
+        document.getElementById("prob11-sol").innerHTML += "<p>" + String(arrValues) + "</p>";
+        document.getElementById("prob11-sol").innerHTML += "<p>" + String(prob11(arrValues)) + "</p>";
+
+
+        arrValues1 = ["car", "food", "tree", "pen", "dog", "food", "computer", "phone", "food"];
+        arrValues2 = ["car", "tree", "plate", "pen", "dog", "tv", "computer", "phone", "table"];
+
+        function prob12(arrValues) {
+            var newArray = [];
+
+            for (var i = 0; i < arrValues.length; i++) {
+                newArray.push(arrValues[i] == "food" ? "yummy" : arrValues[i]);
+                console.log(arrValues[i]);
+            }
+            return newArray;
+        }
+        document.getElementById("prob12-sol").innerHTML += "<p>" + String(prob12(arrValues1)) + "</p>";
+        document.getElementById("prob12-sol").innerHTML += "<p>" + String(prob12(arrValues2)) + "</p>";
+
+
+        arrValues1 = [true, 42, "Ada", 2, "pizza"];
+        arrValues2 = [true, 42, "Ada", 2, "pizza", 78, "house"];
+        arrValues3 = [1, 2, 3, 4, 5, 6];
+        arrValues4 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        function prob13(arrValues) {
+            var intCenter = Math.floor(arrValues.length / 2);
+            var temp = 0;
+            for (var i = 0; i <= intCenter; i += 2) {
+                temp = arrValues[i];
+                arrValues[i] = arrValues[arrValues.length - 1 - i];
+                arrValues[arrValues.length - 1 - i] = temp;
+            }
+            console.log(arrValues);
+            return arrValues;
+        }
+
+        document.getElementById("prob13-sol").innerHTML += "<p>" + String(prob13(arrValues1)) + "</p>";
+        document.getElementById("prob13-sol").innerHTML += "<p>" + String(prob13(arrValues2)) + "</p>";
+        document.getElementById("prob13-sol").innerHTML += "<p>" + String(prob13(arrValues3)) + "</p>";
+        document.getElementById("prob13-sol").innerHTML += "<p>" + String(prob13(arrValues4)) + "</p>";
+
+
+        arrValues = [1, 2, 3];
+        numMultiplier = 3;
+
+        function prob14(arr, num) {
+            for (var i = 0; i < arr.length; i++) {
+                arr[i] *= num;
+            }
+            console.log(arr);
+            return (arr);
+        }
+        prob14(arrValues, numMultiplier);
+        document.getElementById("prob14-sol").innerHTML += "<p>" + String(arrValues) + "</p>";
     </script>
 </body>
 
