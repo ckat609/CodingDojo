@@ -1,6 +1,8 @@
 /*CSS reset settings here*/
 * {
-    outline: 1px dotted orange;
+    outline: 0px dotted black;
+    box-sizing: border-box;
+    font-size: 0;
 }
 
 body {
@@ -8,11 +10,15 @@ body {
     padding: 0px;
 }
 
+div:before,
+div:after {
+    font-size: 0;
+}
+
 #wrapper-external {
     width: 100%;
     background-color: silver;
     margin: 0 auto;
-    /* position: relative; */
 }
 
 #wrapper-internal {
@@ -26,57 +32,85 @@ body {
 }
 
 #navigation {
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    vertical-align: top;
     min-height: 300px;
-    width: 200px;
     background-color: blue;
     display: none;
 }
 
 #main_content {
-    background-color: red;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     padding: 10px;
-    display: block;
-}
+    background-color: red;
+    box-sizing: border-box;
 
-.subcontent {
-    height: 100px;
-    background-color: yellow;
-    margin: 10px;
 }
 
 #advertisement {
     min-height: 120px;
     background-color: rgb(127, 1, 255);
-    margin: 10px;
+    display: block;
+    box-sizing: border-box;
 }
+
+.subcontent {
+    margin: 5px;
+    height: 100px;
+    background-color: yellow;
+    display: block;
+    flex-grow: 1;
+}
+
+.col1 {
+    /* padding: 10px; */
+    width: 100%;
+    display: inline-block;
+}
+
 
 @media only screen and (min-width: 481px) {
-    #navigation {
-        vertical-align: top;
-        padding: 10px;
-        margin-right: 10px;
-        display: inline-block;
-        max-width: 23%;
+
+    .col2 {
+        max-width: 50%;
     }
 
-    #main_content {
-        display: inline-block;
-        max-width: 74%;
+    .subcontent {
+        box-sizing: border-box;
+        flex-grow: 0;
     }
+
+    #maincontent {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
 }
 
-/* @media screen and (min-width: 1024px){
-    #wrapper {
-        max-width: 800px;
-    }
+@media screen and (min-width: 1024px) {
 
     #navigation {
         display: inline-block;
     }
 
-    #main_content {
-        display: inline-block;
+    #maincontent {
+        display: flex;
+        flex-wrap: wrap;
     }
-} */
+
+    .subcontent {
+        box-sizing: border-box;
+    }
+
+    .col2 {
+        min-width: 33.3334%;
+    }
+
+    .col3 {
+        width: 75%;
+    }
+
+    .col4 {
+        width: 25%;
+    }
+}
