@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>JS Basic Foundation II</title>
+</head>
+
+<body>
+
+    <div id="prob1">
+        <h1>Problem 1</h1>
+        <hr>
+        <div id="prob1-sol">
+            <ul>
+                <li>35</li>
+            </ul>
+        </div>
+
+        <h1>Problem 2</h1>
+        <hr>
+        <div id="prob2-sol">
+            <ul>
+                <li>8</li>
+            </ul>
+        </div>
+
+        <h1>Problem 3</h1>
+        <hr>
+        <div id="prob3-sol">
+            <ul>
+                <li>6</li>
+            </ul>
+        </div>
+
+        <h1>Problem 4</h1>
+        <hr>
+        <div id="prob4-sol">
+            <ul>
+                <li>3</li>
+                <li>9</li>
+            </ul>
+        </div>
+
+        <h1>Problem 5</h1>
+        <hr>
+        <div id="prob5-sol">
+            <ul>
+                <li>40</li>
+                <li>
+                    10
+                </li>
+            </ul>
+        </div>
+        <h1>Problem 6</h1>
+        <hr>
+        <div id="prob6-sol">
+            <ul>
+                <li>15</li>
+                <li>4</li>
+            </ul>
+        </div>
+
+        <h1>Problem 7</h1>
+        <hr>
+        <div id="prob7-sol">
+            <ul>
+                <li>10 3</li>
+                <li>30</li>
+            </ul>
+        </div>
+
+        <h1>Problem 8</h1>
+        <hr>
+        <div id="prob8-sol">
+            <ul>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+
+        <h1>Problem 9</h1>
+        <hr>
+        <div id="prob9-sol">
+            <ul>
+                <li>0</li>
+                <li>3</li>
+                <li>7</li>
+                <li>10</li>
+            </ul>
+        </div>
+
+        <h1>Problem 10</h1>
+        <hr>
+        <div id="prob10-sol">
+            <ul>
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>0</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>0</li>
+            </ul>
+        </div>
+
+        <h1>Problem 11</h1>
+        <hr>
+        <div id="prob11-sol">
+            <ul>
+                <li>
+                    the function is never called
+                </li>
+            </ul>
+        </div>
+
+        <h1>Problem 12</h1>
+        <hr>
+        <div id="prob12-sol">
+            <ul>
+                <li>
+                    the function is never called
+                </li>
+            </ul>
+        </div>
+
+        <h1>Problem 13</h1>
+        <hr>
+        <div id="prob13-sol">
+            <ul>
+                <li>
+                    10
+                </li>
+            </ul>
+        </div>
+
+        <h1>Problem 14</h1>
+        <hr>
+        <div id="prob14-sol">
+            <ul>
+                <li>15</li>
+                <li>10</li>
+            </ul>
+        </div>
+
+        <h1>Problem 15</h1>
+        <hr>
+        <div id="prob15-sol">
+            <ul>
+                <li>15</li>
+                <li>15</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function a() {
+            return 35;
+        }
+        console.log(a())
+
+        function a() {
+            return 4;
+        }
+        console.log(a() + a());
+
+        function a(b) {
+            return b;
+        }
+        console.log(a(2) + a(4));
+
+        function a(b) {
+            console.log(b);
+            return b * 3;
+        }
+        console.log(a(3));
+
+        function a(b) {
+            return b * 4;
+            console.log(b);
+        }
+        console.log(a(10));
+
+        function a(b) {
+            if (b < 10) {
+                return 2;
+            } else {
+                return 4;
+            }
+            console.log(b);
+        }
+        console.log(a(15));
+
+        function a(b, c) {
+            return b * c;
+        }
+        console.log(10, 3);
+        console.log(a(3, 10));
+
+        function a(b) {
+            for (var i = 0; i < 10; i++) {
+                console.log(i);
+            }
+            return i;
+        }
+        console.log(3);
+        console.log(4);
+
+        function a() {
+            for (var i = 0; i < 10; i++) {
+                i = i + 2;
+                console.log(i);
+            }
+        }
+        a();
+
+        function a(b, c) {
+            for (var i = b; i < c; i++) {
+                console.log(i);
+            }
+            return b * c;
+        }
+        a(0, 10);
+        console.log(a(0, 10));
+
+        function a() {
+            for (var i = 0; i < 10; i++) {
+                for (var j = 0; j < 10; j++) {
+                    console.log(j);
+                }
+                console.log(i);
+            }
+        }
+
+        function a() {
+            for (var i = 0; i < 10; i++) {
+                for (var j = 0; j < 10; j++) {
+                    console.log(i, j);
+                }
+                console.log(j, i);
+            }
+        }
+        var z = 10;
+
+        function a() {
+            var z = 15;
+            console.log(z);
+        }
+        console.log(z);
+        var z = 10;
+
+        function a() {
+            var z = 15;
+            console.log(z);
+        }
+        a();
+        console.log(z);
+        var z = 10;
+
+        function a() {
+            var z = 15;
+            console.log(z);
+            return z;
+        }
+        z = a();
+        console.log(z);
+    </script>
+</body>
+
+</html>
