@@ -1,0 +1,19 @@
+v1
+- draw grill
+- punch holes
+- keep surrounding path... maybe
+
+v2
+- rotate segments
+
+v3
+- end game
+
+
+TODO
+----
+
+v4
+- add time limit
+- show end screen
+- ask to replay maze or new maze
