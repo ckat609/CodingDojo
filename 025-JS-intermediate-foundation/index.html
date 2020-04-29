@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>JS Basic Foundation II</title>
+</head>
+
+<body>
+
+    <div id="prob1">
+        <h1>Problem 1</h1>
+        <hr>
+        <div id="prob1-sol"> </div>
+
+        <h1>Problem 2</h1>
+        <hr>
+        <div id="prob2-sol"> </div>
+
+        <h1>Problem 3</h1>
+        <hr>
+        <div id="prob3-sol"> </div>
+
+        <h1>Problem 4</h1>
+        <hr>
+        <div id="prob4-sol"> </div>
+
+        <h1>Problem 5</h1>
+        <hr>
+        <div id="prob5-sol"> </div>
+
+        <h1>Problem 6</h1>
+        <hr>
+        <div id="prob6-sol"> </div>
+
+        <h1>Problem 7</h1>
+        <hr>
+        <div id="prob7-sol"> </div>
+
+        <script>
+            function sigma(num) {
+                var sum = 0;
+                for (var i = 1; i <= num; i++) {
+                    sum += i;
+                }
+                return sum;
+            }
+            document.getElementById("prob1-sol").innerHTML = sigma(15);
+
+            function factorial(num) {
+                var mult = 1;
+                for (var i = 1; i <= num; i++) {
+                    mult *= i;
+                }
+                return mult;
+            }
+            document.getElementById("prob2-sol").innerHTML = factorial(5);
+
+
+            function fibonacci(count) {
+                var n1 = 0;
+                var n2 = 1;
+                var content = "<p>0</p>";
+
+                var sum = 0;
+
+                for (var i = 0; i < count; i++) {
+                    sum = n1 + n2;
+                    // content += "<p>" + n1 + "</p>";
+                    content += "<p>" + n2 + "</p>";
+                    n1 = n2;
+                    n2 = sum;
+                }
+                return content;
+            }
+            document.getElementById("prob3-sol").innerHTML = fibonacci(15);
+
+
+            var arr = [42, true, 4, "Liam", 7];
+
+            function second_to_last(arr) {
+                var content = "";
+                content = "<p>" + arr[arr.length - 2] + "</p>";
+                return content;
+            }
+            document.getElementById("prob4-sol").innerHTML = second_to_last(arr, nth);
+
+
+            var arr = [5, 2, 3, 6, 4, 9, 7];
+            var nth = 2;
+
+            function nth_to_last(arr, nth) {
+                var content = "";
+                if (arr.length > nth) {
+                    content = "<p>" + arr[arr.length - nth] + "</p>";
+                } else {
+                    content = "<p>Null</p>";
+                }
+                return content;
+            }
+            document.getElementById("prob5-sol").innerHTML = nth_to_last(arr, nth);
+
+
+            var arr = [42, 1, 4, 3.14, 7];
+
+            function second_largest(arr) {
+                var min = arr[0];
+                var max = arr[0];
+                var maxDif = 0;
+                var maxDifIndex = 0;
+                var content = "";
+
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i] <= min) {
+                        min = arr[i]
+                    }
+                    if (arr[i] >= max) {
+                        max = arr[i]
+                    }
+                }
+                maxDif = max - min;
+
+                for (var j = 0; j < arr.length; j++) {
+                    if (max - arr[j] < maxDif && max - arr[j] != 0) {
+                        maxDif = max - arr[j];
+                        maxDifIndex = j;
+                    }
+                }
+
+                content = "<p>" + arr[maxDifIndex] + "</p>";
+                return content;
+            }
+            document.getElementById("prob6-sol").innerHTML = second_largest(arr);
+
+
+            var arr = [4, "Ulysses", 42, false, "airplane"];
+
+            function double_trouble(arr) {
+                var arrLength = arr.length;
+                var count = 1;
+                var ipos = arr.length - 1;
+
+                for (var i = 0; i < arr.length; i++) {
+                    arr.push("");
+                    if (count <= arrLength) {
+                        for (var j = arr.length - 1; j >= i + 1; j--) {
+                            arr[j] = arr[j - 1];
+                        }
+                        i++;
+                        count++;
+                    }
+                }
+                console.log(arr);
+                return arr;
+            }
+
+            document.getElementById("prob7-sol").innerHTML = double_trouble(arr);
+        </script>
+</body>
+
+</html>
