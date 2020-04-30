@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>JS Basic Foundation II</title>
+</head>
+
+<body>
+
+    <h1>Problem 1</h1>
+    <hr>
+    <div id="prob1-sol"> </div>
+
+    <script>
+        function recursiveFib(steps) {
+            var count = steps - 1;
+            var content = "";
+
+            var num1 = 0;
+            var num2 = 1;
+
+            if (steps == 0 || steps == 1) {
+                return 0;
+            }
+            if (steps > 1) {
+                steps--;
+                num1 = num1 + num2;
+                num2 = num2 + recursiveFib(steps);
+
+                console.log(num1);
+                console.log(num2);
+                return num2;
+            }
+        }
+        document.getElementById("prob1-sol").innerHTML = recursiveFib(8);
+    </script>
+</body>
+
+</html>

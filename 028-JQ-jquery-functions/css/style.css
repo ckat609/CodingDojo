@@ -1,0 +1,42 @@
+* {
+    /* outline: 0px solid red; */
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.2rem;
+    color: royalblue;
+    padding: 0;
+}
+
+p {
+    /* width: 300px; */
+    padding: 0;
+    margin: 0;
+    display: block;
+    overflow-wrap: break-word;
+}
+
+button,
+div {
+    vertical-align: middle;
+    text-align: center;
+    /* border: 0; */
+    margin: 0;
+    padding: 0;
+    width: 49%;
+    display: inline-block;
+}
+
+.extraClass {
+    padding: 10px 0;
+    border: 0px;
+    border-radius: 10px;
+    background-image: linear-gradient(rgb(65, 105, 225), rgb(42, 67, 143));
+    /* background-color: rgb(42, 67, 143); */
+    color: white;
+}

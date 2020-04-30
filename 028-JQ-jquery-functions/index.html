@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#h2SlideDown').css('display', 'none');
+            $('#h2FadeIn').css('display', 'none');
+
+
+
+
+            $('#btnClick').click(function () {
+                alert("A button was clicked!");
+            });
+
+            $('#btnHide').click(function () {
+                $('#h2Hide').hide();
+            });
+
+            $('#btnShow').click(function () {
+                $('#h2Hide').show();
+            });
+
+            $('#btnToggle').click(function () {
+                $('#h2Toggle').toggle();
+            });
+
+            $('#btnSlideDown').click(function () {
+                $('#h2SlideDown').slideDown();
+            });
+
+            $('#btnSlideUp').click(function () {
+                $('#h2SlideUp').slideUp();
+            });
+
+            $('#btnSlideToggle').click(function () {
+                $('#h2SlideToggle').slideToggle();
+            });
+
+            $('#btnFadeIn').click(function () {
+                $('#h2FadeIn').fadeIn();
+            });
+
+            $('#btnFadeOut').click(function () {
+                $('#h2FadeOut').fadeOut();
+            });
+
+            $('#btnAddClass').click(function () {
+                $('#btnAddClass').addClass('extraClass');
+            });
+
+            $('#btnBefore').click(function () {
+                $('#h2Before').before("<b>BEFORE</b>");
+            });
+
+            $('#btnAfter').click(function () {
+                $('#h2After').after("<b>AFTER</b>");
+            });
+
+            $('#btnAppend').click(function () {
+                $('#h2Append').append("<b>APPEND</b>")
+            });
+
+            $('#btnHtml').click(function () {
+                $('#h2Html').html("<button>HTML</button>")
+            });
+
+            $('#btnVal').click(function () {
+                $('#h2Val').text("This is the button's val: " + $('#btnVal').val());
+            });
+
+            $('#btnText').click(function () {
+                $('#h2Text').text("This is just plain text!");
+            });
+
+        });
+    </script>
+
+    <title>JQuery Functions</title>
+</head>
+
+<body>
+
+    <h1>.click</h1>
+    <div>
+        <button id="btnClick">.hide()</button>
+    </div>
+    <div>
+        <h2 id="h2click">.hide()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnHide">.click()</button>
+    </div>
+    <div>
+        <h2 id="h2Hide">.click()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnShow">.show()</button>
+    </div>
+    <div>
+        <h2 id="h2Show">.show()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnToggle">.toggle()</button>
+    </div>
+    <div>
+        <h2 id="h2Toggle">.toggle()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnSlideDown">.slideDown()</button>
+    </div>
+    <div>
+        <h2 id="h2SlideDown">.slideDown()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnSlideUp">.slideUp()</button>
+    </div>
+    <div>
+        <h2 id="h2SlideUp">.slideUp()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnSlideToggle">.slideToggle()</button>
+    </div>
+    <div>
+        <h2 id="h2SlideToggle">.slideToggle()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnFadeIn">.fadeIn()</button>
+    </div>
+    <div>
+        <h2 id="h2FadeIn">.fadeIn()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnFadeOut">.fadeOut()</button>
+    </div>
+    <div>
+        <h2 id="h2FadeOut">.fadeOut()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnAddClass">.addClass()</button>
+    </div>
+    <div>
+        <h2 id="h2AddClass">.addClass()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnBefore">.before()</button>
+    </div>
+    <div>
+        <h2 id="h2Before">.addBefore()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnAfter">.after()</button>
+    </div>
+    <div>
+        <h2 id="h2After">.addAfter()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnAppend">.append()</button>
+    </div>
+    <div>
+        <h2 id="h2Append">.append()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnHtml">.html()</button>
+    </div>
+    <div>
+        <h2 id="h2Html">.html()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnVal" value="Armando">.val()</button>
+    </div>
+    <div>
+        <h2 id="h2Val">.val()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+    <div>
+        <button id="btnText">.text()</button>
+    </div>
+    <div>
+        <h2 id="h2Text">.text()</h2>
+        <p>Click the button to do some magic!</p>
+    </div>
+    <hr>
+
+
+
+</body>
+
+</html>
