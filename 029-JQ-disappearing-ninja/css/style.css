@@ -29,7 +29,11 @@ div {
     margin: 0;
     padding: 0;
     width: 49%;
-    display: inline-block;
+}
+
+.wrapper {
+    width: 800px;
+    margin: 0 auto;
 }
 
 .extraClass {
@@ -38,4 +42,9 @@ div {
     border-radius: 10px;
     background-image: linear-gradient(rgb(65, 105, 225), rgb(42, 67, 143));
     color: white;
+}
+
+.ninja {
+    width: 50px;
+    display: inline-block;
 }
