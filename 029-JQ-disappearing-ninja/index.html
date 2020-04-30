@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            function drawNinjas(numNinjas, ninjasPerRow) {
+                var content = "";
+                var rowCounter = 1;
+
+
+                content += "<div id='row" + rowCounter + "'>";
+                for (var i = 1; i <= numNinjas; i++) {
+                    content += "<img class='ninja' src='img/down1.png' alt=ninja>";
+                    if (i % ninjasPerRow === 0) {
+
+                        rowCounter++;
+                        content += "</div><div id='row" + rowCounter + "'>";
+                    }
+                    if (i === numNinjas) {
+                        content += "</div>";
+                    }
+                }
+                content += "</div>"
+                console.log(content);
+                return content;
+            }
+
+            $('#ninjas').html(drawNinjas(8, 3));
+
+            $('.ninja').click(function () {
+                $(this).fadeOut();
+            });
+            // document.getElementById("ninjas").innerHTML = 
+        })
+    </script>
+
+    <title>JQuery Functions</title>
+</head>
+
+<body>
+
+    <h1>Disappearing Ninja</h1>
+    <div id="ninjas" class="wrapper">
+    </div>
+    <hr>
+
+    <script>
+
+    </script>
+</body>
+
+</html>
