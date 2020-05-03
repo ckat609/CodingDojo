@@ -11,20 +11,21 @@
         $(document).ready(function () {
             function drawNinjaCat(numImages, nameFirst, nameSecond) {
                 var content = "<div id='images'>";
-                for (var i = 0; i < numImages; i++) {
+                var randNum = Math.floor(Math.random() * 2)
+                if (randNum == 1) {
+                    firstImage = nameFirst;
+                    secondImage = nameSecond;
+                } else {
+                    firstImage = nameSecond;
+                    secondImage = nameFirst;
+                }
 
-                    var randNum = Math.floor(Math.random() * 2)
+                for (var i = 0; i < numImages; i++) {
                     console.log(randNum);
 
-                    if (randNum == 1) {
-                        content += "<img src='img/" + nameFirst + i +
-                            ".png' class='puzzle' data-alt-src='img/" +
-                            nameSecond + i + ".png' alt='cat'>";
-                    } else {
-                        content += "<img src='img/" + nameSecond + i +
-                            ".png' class='puzzle' data-alt-src='img/" +
-                            nameFirst + i + ".png' alt='ninja'>";
-                    }
+                    content += "<img src='img/" + firstImage + i +
+                        ".png' class='puzzle' data-alt-src='img/" +
+                        secondImage + i + ".png' alt='cat'>";
                 }
                 content += "</div>"
                 return content;
@@ -32,7 +33,7 @@
 
             $('#cat-ninja').html(drawNinjaCat(5, "cat", "ninja"));
 
-            $('.puzzle').click(function () {
+            $('.puzzle').hover(function () {
                 var oldImage = $(this).attr('src');
                 var newImage = $(this).attr('data-alt-src');
 
@@ -41,16 +42,15 @@
 
                 console.log($(this));
             });
-
-        });
+        })
     </script>
 
-    <title>Ninja Cat</title>
+    <title>Hover In/Out</title>
 </head>
 
 <body>
 
-    <h1>Ninja Cat</h1>
+    <h1>Hover Ninja Cat</h1>
     <div id="cat-ninja" class="wrapper"></div>
 </body>
 
