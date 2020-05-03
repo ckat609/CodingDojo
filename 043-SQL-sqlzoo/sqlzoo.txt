@@ -1,0 +1,20 @@
+https://sqlzoo.net/
+
+DONE - SELECT basics
+DONE - quiz
+DONE - SELECT from world
+DONE - quiz
+DONE - SELECT from nobel
+DONE - quiz
+SELECT in SELECT
+quiz
+SUM and COUNT
+quiz
+JOIN
+quiz
+More JOIN
+quiz
+Using NULL
+quiz
+Self JOIN
+quiz
