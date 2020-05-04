@@ -1,0 +1,9 @@
+- pip list = displays all the tools installed/available in the current environment
+- deactivate = deactivates the current environment
+- pip3 list = displays all the tools installed/available when no environment is active
+- activate = activates an invironment
+- pip install Django==2.2.4 = downloads and install django
+- pip freeze = reads the versions of all installed packages in an environment and then it stores them in the specified file (requirements.txt)
+- pip uninstall Django = uninstalls django
+- pip show Django = if django is installed, it will show all the information about it, such as name, version, a summary, website, etc
+- pip search flask = searches and display all flask related packages
